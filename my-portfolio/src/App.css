@@ -1,0 +1,16 @@
+body {
+    background: url("/field-wallpaper.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.desktop-icons {
+    margin: 15px;
+    width: 32px;
+}
+
+.desktop-icons p {
+    text-align: center;
+}

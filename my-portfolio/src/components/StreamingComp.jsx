@@ -1,21 +1,21 @@
 import React from "react";
-import { useState } from "react";
-import { Modal, Button, List, Frame } from "@react95/core";
-import { Mspaint } from "@react95/icons";
+// import { useState } from "react";
+import { Modal, Frame } from "@react95/core";
+import { Ie } from "@react95/icons";
 
-export default function ModalComp() {
-    const [showModal, toggleShowModal] = useState(true);
-    const handleOpenModal = () => toggleShowModal(true);
+export default function StreamingComp(props) {
+  const showModal = props.show;
+  const toggleShowModal = props.toggle;
+    
     const handleCloseModal = () => toggleShowModal(false);
     return (
       <>
-        <Button onClick={handleOpenModal}>Trigger Modal</Button>
         {showModal && (
           <Modal
             width="80%"
             height="70%"
-            icon={<Mspaint variant="16x16_4" />}
-            title="untitled - Paint"
+            icon={<Ie variant="16x16_8"/>}
+            title="My Twitch"
             defaultPosition={{
               x: 20,
               y: 20,

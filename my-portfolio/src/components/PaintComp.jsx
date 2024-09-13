@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Modal, Frame } from "@react95/core";
 import { Mspaint } from "@react95/icons";
-import ArtPrompt from "./ArtPrompt";
+
 
 export default function PaintComp(props) {
   const showPaint = props.show;
   const toggleShowPaint = props.toggle;
-  const [showHelp, setShowHelp] = useState(false);
-  const handleShowHelp = () => setShowHelp(true);
+  const handleShowHelp = props.onHelp;
 
   const handleClosePaint = () => toggleShowPaint(false);
   return (
@@ -18,10 +17,7 @@ export default function PaintComp(props) {
           height="50%"
           icon={<Mspaint variant="16x16_4" />}
           title="untitled - Paint"
-          defaultPosition={{
-            x: 20,
-            y: 20,
-          }}
+          defaultPosition={{ x: 20, y: 20 }}
           onClose={handleClosePaint}
           onHelp={handleShowHelp}
         >
@@ -34,7 +30,7 @@ export default function PaintComp(props) {
           </Frame>
         </Modal>
       )}
-      {showHelp && <ArtPrompt />}
     </>
   );
 }
+

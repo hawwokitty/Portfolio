@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Modal, Fieldset } from "@react95/core";
 import { HelpBook } from "@react95/icons";
 
-const ArtPrompt = () => {
+export default function ArtPrompt(props) {
   const [palette, setPalette] = useState([]);
-  const [showModal, toggleShowModal] = useState(true);
-
-  const handleCloseModal = () => toggleShowModal(false);
+  const showHelp = props.show;
+  const handleCloseHelp = props.toggle;
 
   // Function to fetch color palette from the Express backend
   const fetchPalette = async () => {
@@ -30,19 +29,20 @@ const ArtPrompt = () => {
 
   return (
     <>
-      {showModal && (
+      {showHelp && (
         <Modal
+          key="help-modal"
           icon={<HelpBook variant="16x16_4" />}
           title="What should I draw?"
-          defaultPosition={{ x: 0, y: 20 }}
-          onClose={handleCloseModal}
+          defaultPosition={{ x: 50, y: 20 }}
+          onClose={handleCloseHelp}
           onHelp={() => {
             console.log("Help!");
           }}
           buttons={[
             {
               value: "Ok",
-              onClick: handleCloseModal,
+              onClick: handleCloseHelp,
             },
             {
               value: "Generate again",
@@ -91,6 +91,4 @@ const ArtPrompt = () => {
       )}
     </>
   );
-};
-
-export default ArtPrompt;
+}

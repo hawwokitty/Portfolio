@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal, Frame } from "@react95/core";
 import { Mspaint } from "@react95/icons";
+import ArtPrompt from "./ArtPrompt";
 
 export default function PaintComp(props) {
   const showPaint = props.show;
@@ -32,7 +33,9 @@ export default function PaintComp(props) {
             ></iframe>
           </Frame>
         </Modal>
+        
       )}
+        <ArtPrompt />
     </>
   );
 }

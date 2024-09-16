@@ -10,7 +10,7 @@ export default function ArtPrompt(props) {
   // Function to fetch color palette from the Express backend
   const fetchPalette = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/palette"); // Fetch from the backend server
+      const response = await fetch("https://portfolio-server-gamma-inky.vercel.app/api/palette"); // Fetch from the backend server
       const data = await response.json();
 
       // Check if the data contains the result array

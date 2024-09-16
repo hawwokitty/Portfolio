@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Modal, Fieldset } from "@react95/core";
+import { Modal, Fieldset, Tabs, Tab } from "@react95/core";
 import { HelpBook } from "@react95/icons";
 
 export default function ArtPrompt(props) {
@@ -52,41 +52,53 @@ export default function ArtPrompt(props) {
             },
           ]}
         >
-          <p>
-            If you need ideas for what to draw, feel free to use the generated
-            color palette:
-          </p>
-          <Fieldset legend="Generated Color Palette">
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              {palette.map((color, index) => (
-                <div
-                  key={index}
-                  style={{ display: "flex", alignItems: "center" }}
-                >
-                  <div
-                    style={{
-                      backgroundColor: `rgb(${color[0]}, ${color[1]}, ${color[2]})`, // Use the RGB values for the color
-                      width: "20px",
-                      height: "20px",
-                      margin: "5px",
-                      border: "1px solid #000",
-                    }}
-                  ></div>
-                  <p>{`RGB(${color[0]}, ${color[1]}, ${color[2]})`}</p>
+          <Tabs width="350px" defaultActiveTab="Color Palette">
+            <Tab title="Color Palette">
+              <p>
+                If you need ideas for what to draw, feel free to use the
+                generated color palette:
+              </p>
+              <Fieldset legend="Generated Color Palette">
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  {palette.map((color, index) => (
+                    <div
+                      key={index}
+                      style={{ display: "flex", alignItems: "center" }}
+                    >
+                      <div
+                        style={{
+                          backgroundColor: `rgb(${color[0]}, ${color[1]}, ${color[2]})`, // Use the RGB values for the color
+                          width: "20px",
+                          height: "20px",
+                          margin: "5px",
+                          border: "1px solid #000",
+                        }}
+                      ></div>
+                      <p>{`RGB(${color[0]}, ${color[1]}, ${color[2]})`}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </Fieldset>
-          <h4>How to use palette</h4>
-          <ul>
-            <li>Click "Colors"</li>
-            <li>Click "Edit colors..."</li>
-            <li>Click "Define Custom Colors"</li>
-            <li>Click an empty custom color</li>
-            <li>Enter the RGB values for each color</li>
-            <li>Click "Add To Custom Colors"</li>
-            <li>Click "Ok"</li>
-          </ul>
+              </Fieldset>
+              <h4>How to use palette</h4>
+              <ul>
+                <li>Click the color you want to replace</li>
+                <li>Click "Colors" in the menu above</li>
+                <li>Click "Edit colors..."</li>
+                <li>Click "Define Custom Colors"</li>
+                <li>Click an empty custom color</li>
+                <li>Enter the RGB values</li>
+                <li>Click "Add To Custom Colors"</li>
+                <li>Click "Ok"</li>
+                <li>Do this for all the colors</li>
+              </ul>
+            </Tab>
+            <Tab title="Mood">
+              <p>
+                Here is a random emoji to determine the mood of your drawing, if
+                you want:
+              </p>
+            </Tab>
+          </Tabs>
         </Modal>
       )}
     </>

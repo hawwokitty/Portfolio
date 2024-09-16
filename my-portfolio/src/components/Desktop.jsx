@@ -5,7 +5,8 @@ export default function Desktop(props) {
   const handleOpenPaint = props.openPaint;
   const handleOpenStreaming = props.openStreaming;
   const [activeIcon, setActiveIcon] = useState(null);
-  const handleOpenCoding = "";
+  const handleOpenCoding = props.openCoding;
+  const handleOpenTrash = props.openTrash;
 
   const handleToggleIcon = (iconId) => {
     setActiveIcon((prev) => (prev === iconId ? null : iconId));
@@ -16,9 +17,9 @@ export default function Desktop(props) {
       <div
         className={activeIcon === 1 ? "active-icon" : "inactive-icon"}
         onClick={() => handleToggleIcon(1)}
-        onDoubleClick={handleOpenCoding}
+        onDoubleClick={handleOpenTrash}
       >
-        <Explorer108 variant="32x32_4"/>
+        <Explorer108 variant="32x32_4" />
         <p>Trash</p>
       </div>
       <div
@@ -42,7 +43,7 @@ export default function Desktop(props) {
         onClick={() => handleToggleIcon(4)}
         onDoubleClick={handleOpenStreaming}
       >
-        <Gcdef100 variant="32x32_4"/>
+        <Gcdef100 variant="32x32_4" />
         <p>Streaming</p>
       </div>
     </div>

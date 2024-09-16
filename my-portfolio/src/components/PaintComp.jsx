@@ -1,7 +1,6 @@
 import React from "react";
-import { Modal, Frame, ModalProvider } from "@react95/core";
+import { Modal, Frame } from "@react95/core";
 import { Mspaint } from "@react95/icons";
-
 
 export default function PaintComp(props) {
   const showPaint = props.show;
@@ -11,10 +10,9 @@ export default function PaintComp(props) {
   const handleClosePaint = () => toggleShowPaint(false);
   return (
     <>
-    <ModalProvider>
       {showPaint && (
         <Modal
-        key="paint-modal"
+          key="paint-modal"
           width="50%"
           height="50%"
           icon={<Mspaint variant="16x16_4" />}
@@ -32,8 +30,6 @@ export default function PaintComp(props) {
           </Frame>
         </Modal>
       )}
-      </ModalProvider>
     </>
   );
 }
-

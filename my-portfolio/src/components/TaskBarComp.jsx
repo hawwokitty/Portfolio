@@ -16,7 +16,7 @@ import {
   HelpBook,
   LoaderBat,
   Computer3,
-} from "@react95/icons"; 
+} from "@react95/icons";
 
 function TaskBarComp() {
   const [first, toggleFirst] = useState(false);

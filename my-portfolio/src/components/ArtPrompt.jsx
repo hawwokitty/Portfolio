@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Modal, Fieldset, ModalProvider } from "@react95/core";
+import { Modal, Fieldset } from "@react95/core";
 import { HelpBook } from "@react95/icons";
 
 export default function ArtPrompt(props) {
@@ -29,7 +29,6 @@ export default function ArtPrompt(props) {
 
   return (
     <>
-    <ModalProvider>
       {showHelp && (
         <Modal
           key="help-modal"
@@ -90,7 +89,6 @@ export default function ArtPrompt(props) {
           </ul>
         </Modal>
       )}
-      </ModalProvider>
     </>
   );
 }

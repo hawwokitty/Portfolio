@@ -4,6 +4,7 @@ import { HelpBook } from "@react95/icons";
 
 export default function ArtPrompt(props) {
   const [palette, setPalette] = useState([]);
+  const [emoji, setEmoji] = useState();
   const showHelp = props.show;
   const handleCloseHelp = props.toggle;
 
@@ -22,11 +23,25 @@ export default function ArtPrompt(props) {
     }
   };
 
+  const fetchEmoji = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/emojis"); // Use your backend's URL
+      const data = await response.json();
+      const randomIndex = Math.floor(Math.random() * data.length);
+      setEmoji(data[randomIndex].emoji); // Assuming the API has an 'emoji' field
+    } catch (error) {
+      console.error("Error fetching emoji", error);
+    }
+  };
+  
+  
   // Fetch color palette on component mount
   useEffect(() => {
     fetchPalette();
+    fetchEmoji();
+    
   }, []);
-
+  
   return (
     <>
       {showHelp && (
@@ -96,6 +111,7 @@ export default function ArtPrompt(props) {
               <p>
                 Here is a random emoji to determine the mood of your drawing, if
                 you want:
+                {emoji}
               </p>
             </Tab>
           </Tabs>

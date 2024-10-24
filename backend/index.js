@@ -26,6 +26,20 @@ app.get('/api/palette', async (req, res) => {
   }
 });
 
+app.get('/api/emojis', async (req, res) => {
+  try {
+    const response = await fetch('https://www.emoji.family/api/emojis');
+    const data = await response.json();
+
+    // Return the fetched emoji data to the frontend
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching emojis:', error);
+    res.status(500).send('Error fetching emojis');
+  }
+});
+
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

@@ -23,7 +23,7 @@ function App() {
       <Desktop openPaint={handleOpenPaint} openStreaming={handleOpenStreaming} />
       <PaintComp show={showPaint} toggle={toggleShowPaint} onHelp={handleShowHelp} />
       <StreamingComp show={showStreaming} toggle={toggleShowStreaming} />
-      {showHelp && <ArtPrompt show={showHelp} toggle={handleCloseHelp}  />}
+      <ArtPrompt show={showHelp} toggle={handleCloseHelp}  />
     </>
   );
 }
